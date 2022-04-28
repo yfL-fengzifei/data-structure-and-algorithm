@@ -29,4 +29,8 @@ class Queue(object):
 if __name__ == '__main__':
     print(__doc__)
 
+    string_queue=Queue()
+
+    string_queue.enqueue('a')
+    print(string_queue.items)
     

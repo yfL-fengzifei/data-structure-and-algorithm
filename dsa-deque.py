@@ -4,13 +4,15 @@ name: deque 双端队列
 """
 
 
-class Deque(object):
+# from pythonds.basic.deque import Deque
+
+class Deque:
     """
     deque implementation
     双端队列实现
     """
 
-    def __int__(self):
+    def __init__(self):
         self.items = []
 
     def isEmpty(self):
@@ -23,10 +25,10 @@ class Deque(object):
         self.items.insert(0, item)
 
     def removeHead(self):
-        self.items.pop()
+        return self.items.pop()
 
     def removeEnd(self):
-        self.items.pop(0)
+        return self.items.pop(0)
 
     def size(self):
         return len(self.items)
@@ -60,12 +62,10 @@ def backToWord(s: str):
 if __name__ == '__main__':
     print(__doc__)
 
-    # string_deque=Deque()
+    string_deque = Deque()
     # print(string_deque.__doc__)
     # print(dir(string_deque))
 
-    # backToWord('radar')
-
-    #check word weather back equal
-    # print(backToWord('radar'))
-    # print(backToWord('dfhjfdhgfjdhgf'))
+    # check word weather back equal
+    print(backToWord('radar'))
+    print(backToWord('dfhjfdhgfjdhgf'))
