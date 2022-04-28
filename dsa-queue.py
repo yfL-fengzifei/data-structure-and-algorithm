@@ -9,7 +9,7 @@ class Queue(object):
     队列实现
     """
 
-    def __int__(self):
+    def __init__(self):
         self.items=[]
 
     def isEmpty(self):
