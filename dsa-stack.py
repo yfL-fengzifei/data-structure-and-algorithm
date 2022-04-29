@@ -1,3 +1,8 @@
+"""
+script info:
+name: stack 栈
+"""
+
 class Stack(object):
     """
     栈 implementation

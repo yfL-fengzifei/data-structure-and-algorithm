@@ -1,6 +1,6 @@
 """
 stript info
-name: linked list
+name: linked list 无序链表
 """
 
 
@@ -38,15 +38,6 @@ class UnordredList(object):
 
         self.head = temp
 
-    def size(self):
-        current = self.head
-        count = 0
-        while current is not None:
-            count += 1
-            current = current.getNext()
-
-        return count
-
     def search(self, item):
         current = self.head
         found = False
@@ -73,6 +64,15 @@ class UnordredList(object):
             self.head = current.getNext()
         else:
             previous.setNext(current.getNext())
+
+    def size(self):
+        current = self.head
+        count = 0
+        while current is not None:
+            count += 1
+            current = current.getNext()
+
+        return count
 
 if __name__ == '__main__':
     print(__doc__)
