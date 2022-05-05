@@ -63,8 +63,24 @@ def fractalTree(branch_len: int):
         t.backward(branch_len)
 
 
+def hanoi():
+    """
+    tower of hanoi implemented by recursion
+    递归实现汉诺塔
+    Returns:
 
+    """
 
+    def moveTower(height, fromPole, withPole, toPole):
+        if height >= 1:
+            moveTower(height - 1, fromPole, toPole, withPole)
+            moveDisk(height, fromPole, toPole)
+            moveTower(height - 1, withPole, fromPole, toPole)
+
+    def moveDisk(disk, fromPole, toPole):
+        print(f'moving disk[{disk}] from {fromPole} to {toPole}')
+
+    moveTower(3,'#1','#2','#3')
 
 
 if __name__ == '__main__':
@@ -91,3 +107,5 @@ if __name__ == '__main__':
     # fractalTree(75)
     # t.hideturtle()
     # turtle.done()
+
+    hanoi()
