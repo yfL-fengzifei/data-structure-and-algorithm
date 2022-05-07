@@ -80,7 +80,7 @@ def hanoi():
     def moveDisk(disk, fromPole, toPole):
         print(f'moving disk[{disk}] from {fromPole} to {toPole}')
 
-    moveTower(3,'#1','#2','#3')
+    moveTower(3, '#1', '#2', '#3')
 
 
 if __name__ == '__main__':
