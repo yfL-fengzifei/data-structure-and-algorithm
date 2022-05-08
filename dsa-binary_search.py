@@ -68,6 +68,30 @@ class BinarySearch():
             return None
 
 
+def binarySearch(l: list, item: int) -> bool:
+    """
+    binary search implemented by recursion
+    递归实现二分查找
+    Args:
+        l: 待查找的list sort: list
+        item: 待查找元素
+
+    Returns:
+        T or F
+    """
+    if len(l) == 0:
+        return False
+    else:
+        minpoint = len(l) // 2
+
+        if l[minpoint] == item:
+            return True
+        elif l[minpoint] > item:
+            return binarySearch(l[:minpoint], item)
+        else:
+            return binarySearch(l[minpoint + 1:], item)
+
+
 if __name__ == '__main__':
     print(__doc__)
 
@@ -81,3 +105,6 @@ if __name__ == '__main__':
 
     # recursive search
     print(bs.search_recursive(l, 0, len(l) - 1, item2search))
+
+    # 单独实现递归
+    print(binarySearch(l, 3))
