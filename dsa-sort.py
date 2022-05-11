@@ -160,6 +160,7 @@ def quickSort(l: list, first: int = 0, last: int = -1) -> list:
         quickSort(l, first, splitpoint - 1)
         quickSort(l, splitpoint + 1, last)
 
+    return l
 
 def partition(l: list, first: int = 0, last: int = -1):
     """
@@ -172,16 +173,36 @@ def partition(l: list, first: int = 0, last: int = -1):
     Returns:
 
     """
-    # 选择中指
-    pivotvalue=l[first]
+    # 选择中值
+    pivotvalue = l[first]
 
-    leftmark=first+1
-    rightmark=last
+    # 左右标
+    leftmark = first + 1
+    rightmark = last
 
-    done=False
+    # 左右标移动结束
+    done = False
 
-    
+    while not done:
+        # 左标右移
+        while (leftmark <= rightmark and
+               l[leftmark] <= pivotvalue):
+            leftmark += 1
 
+        # 右标左移
+        while (leftmark <= rightmark and
+               l[rightmark] >= pivotvalue):
+            rightmark -= 1
+
+        if rightmark < leftmark:  # 左右标交错，则停止移动
+            done = True
+        else:  # 交换左右标所指元素
+            l[leftmark], l[rightmark] = l[rightmark], l[leftmark]
+
+    # 交换中值
+    l[first], l[rightmark] = l[rightmark], l[first]
+
+    return rightmark
 
 if __name__ == '__main__':
     print(__doc__)
@@ -200,10 +221,13 @@ if __name__ == '__main__':
     print(selectionSort(l.copy()))
 
     print("""insert sort""")
-    print(insertSort(l))
+    print(insertSort(l.copy()))
 
     print("""merge sort: version1""")
-    print(mergeSort(l))
+    print(mergeSort(l.copy()))
 
     print("""merge sort: version2""")
-    print(mergeSort2(l))
+    print(mergeSort2(l.copy()))
+
+    print("""quick sort""")
+    print(quickSort(l.copy(),0,len(l)-1))
