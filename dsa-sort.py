@@ -68,6 +68,28 @@ def insertSort(l: list) -> list:
     return l
 
 
+def sampleSort(l: list) -> list:
+    """
+    smaple sort implemented by recursion
+    递归实现归并排序
+    Args:
+        l: 待排序列表 list
+
+    Returns:
+        排序的结果列表 list
+
+    """
+
+    if len(l) < 2:
+        return l
+    else:
+        pivot = l[0]
+        small = [x for x in l[1:] if x <= pivot]
+        large = [x for x in l[1:] if x > pivot]
+
+        return sampleSort(small) + [pivot] + sampleSort(large)
+
+
 def mergeSort(l: list) -> list:
     """
     merge sort implemented by recursion
@@ -162,6 +184,7 @@ def quickSort(l: list, first: int = 0, last: int = -1) -> list:
 
     return l
 
+
 def partition(l: list, first: int = 0, last: int = -1):
     """
 
@@ -204,6 +227,7 @@ def partition(l: list, first: int = 0, last: int = -1):
 
     return rightmark
 
+
 if __name__ == '__main__':
     print(__doc__)
 
@@ -223,6 +247,9 @@ if __name__ == '__main__':
     print("""insert sort""")
     print(insertSort(l.copy()))
 
+    print("""sample sort""")
+    print(sampleSort(l.copy()))
+
     print("""merge sort: version1""")
     print(mergeSort(l.copy()))
 
@@ -230,4 +257,4 @@ if __name__ == '__main__':
     print(mergeSort2(l.copy()))
 
     print("""quick sort""")
-    print(quickSort(l.copy(),0,len(l)-1))
+    print(quickSort(l.copy(), 0, len(l) - 1))
