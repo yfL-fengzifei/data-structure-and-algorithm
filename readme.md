@@ -7,4 +7,6 @@ algorithm implemented
 - stack 栈
 - queue 队列
 - deque 双端队列
-- 链表
+- linked list 链表
+- sort 排序
+- tree 树
