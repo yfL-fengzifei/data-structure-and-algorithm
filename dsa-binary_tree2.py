@@ -38,8 +38,82 @@ class BinaryTree(object):
     def getRootVal(self):
         return self.key
 
+    def preOrder(self):
+        print(self.key)
+
+        if self.leftChild:
+            self.leftChild.preOrder()
+
+        if self.rightChild:
+            self.rightChild.preOrder()
+
+    def postOrder(self):
+
+        if self.leftChild:
+            self.leftChild.preOrder()
+
+        if self.rightChild:
+            self.rightChild.preOrder()
+
+        print(self.key)
+
+    def inOrder(self):
+        if self.leftChild:
+            self.leftChild.preOrder()
+
+        print(self.key)
+
+        if self.rightChild:
+            self.rightChild.preOrder()
+
+
+def preOrder(tree):
+    """
+    先序遍历
+    Args:
+        tree: 待遍历的树结构
+
+    Returns:
+        None
+    """
+    if tree:  # is None
+        print(tree.getRootVal())
+        preOrder(tree.getLeftChild())
+        preOrder(tree.getRightChild())
+
+
+def postOrder(tree):
+    """
+    后序遍历
+    Args:
+        tree: 待遍历的树结构
+
+    Returns:
+        None
+    """
+    if tree is not None:
+        postOrder(tree.getLeftChild())
+        postOrder(tree.getRightChild())
+        print(tree.getRootVal())
+
+
+def inOrder(tree):
+    """
+    中序遍历
+    Args:
+        tree: 待遍历的树结构
+
+    Returns:
+        None
+    """
+    if tree is not None:
+        inOrder(tree.getLeftChild())
+        print(tree.getRootVal())
+        inOrder(tree.getRightChild())
+
 
 if __name__ == '__main__':
+    print(__doc__)
     r = BinaryTree('a')
     print(r.key, r.getRootVal(), r.getLeftChild(), r.getRightChild())
 
