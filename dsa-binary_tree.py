@@ -1,6 +1,6 @@
 """
 script info:
-name: binary tree 二叉树
+name: binary tree 二叉树 的 列表实现
 """
 
 
@@ -44,6 +44,8 @@ def getRightChild(root):
 
 
 if __name__ == '__main__':
+    print(__doc__)
+
     r = BinaryTree(3)
     print(r)
     insertLeft(r, 4)
